@@ -46,6 +46,7 @@ for (var i = 0; i < program.amount; i++) {
     var flow = JSON.parse(JSON.stringify(r.pick(sampleFlows))); // Deep clone
     flow.delay = r.integer(0, maxDelay);
     flow.owner = sampleOwner;
+    flow.name = "Workflow starting at " + flow.delay;
     if (flow.delay < minDelay) minDelay = flow.delay;
     workflows.push(flow);
 }
