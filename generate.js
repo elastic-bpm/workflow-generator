@@ -32,8 +32,8 @@ var sampleFlows = [
 		"edges": "A:CC:S -> B:CN:M, A:CC:S -> C:CI:M, B:CN:M -> D:CC:L, C:CI:M -> D:CC:L"
 	},
 	{
-		"nodes": "A:CC:S, B:CN:M, C:CI:M, D:CC:L",
-		"edges": "A:CC:S -> B:CN:M, A:CC:S -> C:CI:M, B:CN:M -> D:CC:L, C:CI:M -> D:CC:L"
+		"nodes": "A:CC:S, B:CN:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
+		"edges": "A:CC:S -> B:CN:M, A:CC:S -> C:CI:M, B:CN:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, E:CN:M -> G:CC:S"
 	}
 ];
 
@@ -46,14 +46,14 @@ for (var i = 0; i < program.amount; i++) {
     var flow = JSON.parse(JSON.stringify(r.pick(sampleFlows))); // Deep clone
     flow.delay = r.integer(0, maxDelay);
     flow.owner = sampleOwner;
-    flow.name = "Workflow starting at " + flow.delay;
     if (flow.delay < minDelay) minDelay = flow.delay;
     workflows.push(flow);
 }
 
-// Let it start right away
+// Let it start right away & set name
 for (var i = 0; i < workflows.length; i++) {
     workflows[i].delay = workflows[i].delay - minDelay;
+    workflows[i].name = "Workflow starting at " + workflows[i].delay;
 }
 
 fs.writeFile(program.output, JSON.stringify(workflows, null, 2), function(){
