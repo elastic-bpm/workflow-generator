@@ -28,16 +28,16 @@ var sampleOwner = "Johannes"; // Why not?
 
 var sampleFlows = [
  	{
-		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CC:M, E:CC:M, F:CC:L, G:CC:M, H:CC:M, I:CC:M",
-        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CC:M, A:CC:M -> E:CC:M, A:CC:M -> F:CC:L, A:CC:M -> G:CC:M, A:CC:M -> H:CC:M, A:CC:M -> I:CC:M"
+		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CI:M, E:CC:M, F:CC:L, G:CC:M, H:CC:M, I:CC:M",
+        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CI:M, A:CC:M -> E:CC:M, A:CC:M -> F:CC:L, A:CC:M -> G:CC:M, A:CC:M -> H:CC:M, A:CC:M -> I:CC:M"
 	},
     {
-		"nodes": "A:CC:S, B:CN:M, C:CI:M, D:CC:M, E:CN:M, F:CI:M, G:CC:M, H:CC:S",
-		"edges": "A:CC:S -> B:CN:M, A:CC:S -> C:CI:M, A:CC:S -> D:CC:M, B:CN:M -> E:CN:M, C:CI:M -> F:CI:M, D:CC:M -> G:CC:M, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:CC:M -> H:CC:S"
+		"nodes": "A:CC:S, B:CI:M, C:CI:M, D:CI:M, E:CN:M, F:CI:M, G:CC:M, H:CC:S",
+		"edges": "A:CC:S -> B:CI:M, A:CC:S -> C:CI:M, A:CC:S -> D:CI:M, B:CI:M -> E:CN:M, C:CI:M -> F:CI:M, D:CI:M -> G:CC:M, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:CC:M -> H:CC:S"
 	},
 	{
-		"nodes": "A:CC:S, B:CN:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
-		"edges": "A:CC:S -> B:CN:M, A:CC:S -> C:CI:M, B:CN:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
+		"nodes": "A:CC:S, B:CI:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
+		"edges": "A:CC:S -> B:CI:M, A:CC:S -> C:CI:M, B:CI:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
 	}
 ];
 
