@@ -5,8 +5,8 @@ var fs = require("fs");
 program
   .version('0.1')
   .option('-s, --seed [value]', 'Set random seed [0]', 0)
-  .option('-d, --duration [value]', 'Set trace duration in minutes [30]', 30)
-  .option('-a, --amount [value]', 'Amount of workflows [120]', 120)
+  .option('-d, --duration [value]', 'Set trace duration in minutes [40]', 40)
+  .option('-a, --amount [value]', 'Amount of workflows [60]', 60)
   .option('-h, --human [value]', 'Percentage of human tasks in workflows [25]', 25) // ignored for now
   .option('-o, --output [value]', 'Filename to save trace as [output.json]', "output.json")
   .parse(process.argv);
@@ -28,16 +28,16 @@ var sampleOwner = "Johannes"; // Why not?
 
 var sampleFlows = [
  	{
-		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CI:M, E:CC:M, F:CC:L, G:CC:M, H:CC:M, I:CC:M",
-        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CI:M, A:CC:M -> E:CC:M, A:CC:M -> F:CC:L, A:CC:M -> G:CC:M, A:CC:M -> H:CC:M, A:CC:M -> I:CC:M"
+		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CI:M, E:CC:M, F:CI:L, G:CN:M, H:CN:M, I:CC:M",
+        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CI:M, A:CC:M -> E:CC:M, A:CC:M -> F:CI:L, A:CC:M -> G:CN:M, A:CC:M -> H:CN:M, A:CC:M -> I:CC:M"
 	},
     {
-		"nodes": "A:CC:S, B:CI:M, C:CI:M, D:CI:M, E:CN:M, F:CI:M, G:CC:M, H:CC:S",
-		"edges": "A:CC:S -> B:CI:M, A:CC:S -> C:CI:M, A:CC:S -> D:CI:M, B:CI:M -> E:CN:M, C:CI:M -> F:CI:M, D:CI:M -> G:CC:M, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:CC:M -> H:CC:S"
+		"nodes": "A:CI:M, B:CI:M, C:CI:M, D:CI:M, E:CN:M, F:CI:M, G:CN:M, H:CC:S",
+		"edges": "A:CI:M -> B:CI:M, A:CI:M -> C:CI:M, A:CI:M -> D:CI:M, B:CI:M -> E:CN:M, C:CI:M -> F:CI:M, D:CI:M -> G:CN:M, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:CN:M -> H:CC:S"
 	},
 	{
-		"nodes": "A:CC:S, B:CI:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
-		"edges": "A:CC:S -> B:CI:M, A:CC:S -> C:CI:M, B:CI:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
+		"nodes": "A:CI:M, B:CI:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
+		"edges": "A:CI:M -> B:CI:M, A:CI:M -> C:CI:M, B:CI:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
 	}
 ];
 
