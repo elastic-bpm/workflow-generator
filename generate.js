@@ -6,8 +6,7 @@ program
   .version('0.1')
   .option('-s, --seed [value]', 'Set random seed [0]', 0)
   .option('-d, --duration [value]', 'Set trace duration in minutes [40]', 40)
-  .option('-a, --amount [value]', 'Amount of workflows [60]', 60)
-  .option('-h, --human [value]', 'Percentage of human tasks in workflows [25]', 25) // ignored for now
+  .option('-a, --amount [value]', 'Amount of workflows [100]', 100)
   .option('-o, --output [value]', 'Filename to save trace as [output.json]', "output.json")
   .parse(process.argv);
 
@@ -15,7 +14,6 @@ console.log('Generating a trace with:');
 console.log(' seed: ' + program.seed);
 console.log(' duration of trace: ' + program.duration + " minutes");
 console.log(' amount of workflows: ' + program.amount);
-console.log(' ' + program.human + '% human tasks in workflows');
 console.log(' saving to ' + program.output);
 console.log('***');
 
@@ -28,16 +26,16 @@ var sampleOwner = "Johannes"; // Why not?
 
 var sampleFlows = [
  	{
-		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CI:M, E:CC:M, F:CI:L, G:CN:M, H:CN:M, I:CC:M",
-        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CI:M, A:CC:M -> E:CC:M, A:CC:M -> F:CI:L, A:CC:M -> G:CN:M, A:CC:M -> H:CN:M, A:CC:M -> I:CC:M"
+		"nodes": "A:CC:M, B:CC:M, C:CC:L, D:CI:M, E:CC:M, F:CI:L, G:HH:60, H:CN:M, I:CC:M",
+        "edges": "A:CC:M -> B:CC:M, A:CC:M -> C:CC:L, A:CC:M -> D:CI:M, A:CC:M -> E:CC:M, A:CC:M -> F:CI:L, A:CC:M -> G:HH:60, A:CC:M -> H:CN:M, A:CC:M -> I:CC:M"
 	},
     {
-		"nodes": "A:CI:M, B:CI:M, C:CI:M, D:CI:M, E:CN:M, F:CI:M, G:CN:M, H:CC:S",
-		"edges": "A:CI:M -> B:CI:M, A:CI:M -> C:CI:M, A:CI:M -> D:CI:M, B:CI:M -> E:CN:M, C:CI:M -> F:CI:M, D:CI:M -> G:CN:M, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:CN:M -> H:CC:S"
+		"nodes": "A:CI:M, B:HH:60, C:CI:M, D:CI:M, E:CN:M, F:CI:M, G:HH:60, H:CC:S",
+		"edges": "A:CI:M -> B:HH:60, A:CI:M -> C:CI:M, A:CI:M -> D:CI:M, B:HH:60 -> E:CN:M, C:CI:M -> F:CI:M, D:CI:M -> G:HH:60, E:CN:M -> H:CC:S, F:CI:M -> H:CC:S, G:HH:60 -> H:CC:S"
 	},
 	{
-		"nodes": "A:CI:M, B:CI:M, C:CI:M, D:CC:S, E:CN:M, F:CI:M, G:CC:S",
-		"edges": "A:CI:M -> B:CI:M, A:CI:M -> C:CI:M, B:CI:M -> D:CC:S, C:CI:M -> D:CC:S, D:CC:S -> E:CN:M, D:CC:S -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
+		"nodes": "A:CI:M, B:HH:60, C:CI:M, D:HE:15, E:CN:M, F:CI:M, G:CC:S",
+		"edges": "A:CI:M -> B:HH:60, A:CI:M -> C:CI:M, B:HH:60 -> D:HE:15, C:CI:M -> D:HE:15, D:HE:15 -> E:CN:M, D:HE:15 -> F:CI:M, E:CN:M -> G:CC:S, F:CI:M -> G:CC:S"
 	}
 ];
 
