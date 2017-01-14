@@ -5,7 +5,7 @@ var fs = require("fs");
 program
   .version('0.2')
   .option('-s, --seed [value]', 'Set random seed [0]', 0)
-  .option('-d, --duration [value]', 'Set trace duration in minutes [50]', 50)
+  .option('-d, --duration [value]', 'Set trace duration in minutes [30]', 30)
   .option('-a, --amount [value]', 'Amount of workflows [100]', 100)
   .option('-o, --output [value]', 'Filename to save trace as [output.json]', "output.json")
   .parse(process.argv);
